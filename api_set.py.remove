@@ -1,0 +1,85 @@
+import requests
+import pycurl
+import cStringIO
+import pprint
+
+def main():
+	ip = '172.16.100.7'
+	pandora_url = '/pandora_console'
+	apipass = 'S7e3xd9Wa'
+	user = 'admin'
+	password = 'pandora'
+	op = 'set' #set or get mode
+	op2 = 'new_network_component' #choose type
+	#id = 'Oper%20Status%20On%20Interface%20Gi5%2F'
+	description = 'network%20component%20created%20by%20API'
+	#network_component_type='16' #remote snmp inc
+	network_component_type='18'	#remote snmp boolean
+	network_component_group='50' #cisco test group
+	snmp_community = 'exit'
+	
+	return_type = 'csv'
+	other =  network_component_type + "%7C" + description + "%7C%7C%7C%7C" + snmp_community + "%7C3%7C%7C1%7C%7C%7C%7C%7C%7C%7C%7C%7C" + network_component_group  
+	other_mode = 'url_encode_separator_%7C'
+	
+	url = "http://" + ip  + pandora_url + "/include/api.php"
+	
+	url += "?"
+        url += "&op=" + op
+        url += "&op2=" + op2
+	for ifnum in range(2):
+		id = 'Oper%20Status%20On%20Interface%20Te5%2F'
+		ifnum = ifnum+1
+		id = id + str(ifnum)	
+		url += "&id=" + id
+		url += "&other=" + other
+		url += "&other_mode=" + other_mode
+		url += "&apipass=" + apipass
+		url += "&user="  + user
+		url += "&pass=" + password
+		response=requests.get(url)
+	
+		
+"""	
+	buf = cStringIO.StringIO()
+	
+	c = pycurl.Curl()
+	c.setopt(c.URL, url)
+	c.setopt(c.WRITEFUNCTION, buf.write)
+	c.perform()
+	
+	output = buf.getvalue()
+	buf.close()
+	
+	
+	
+	lines = output.split("\n")
+	agents = []
+	for line in lines:
+		if not line:
+			continue
+		
+		fields = line.split(";")
+		agent = {}
+		agent['id_agent'] = fields[0]
+		agent['name'] = fields[1]
+		agent['ip'] = fields[2]
+		agent['description'] = fields[3]
+		agent['os_name'] = fields[4]
+		agent['url_address'] = fields[5]
+		
+		agents.append(agent)
+	
+	for agent in agents:
+		print("---- Agent #" + agent['id_agent'] + " ----")
+		print("Name: " + agent['name'])
+		print("IP: " + agent['ip'])
+		print("Description: " + agent['description'])
+		print("OS: " + agent['os_name'])
+		print("URL: " + agent['url_address'])
+		print("")
+
+"""
+main()
+#if __name__ == "__main__":
+#    main()
