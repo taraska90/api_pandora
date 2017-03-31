@@ -3,11 +3,11 @@ import cStringIO
 import pprint
 
 def main():
-	ip = '172.16.100.7'
+	ip = ''
 	pandora_url = '/pandora_console'
-	apipass = 'S7e3xd9Wa'
+	apipass = ''
 	user = 'admin'
-	password = 'pandora'
+	password = ''
 	op = 'get'
 	op2 = 'all_agents'
 	return_type = 'csv'

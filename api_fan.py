@@ -6,9 +6,9 @@ import pprint
 import urllib
 
 def netw_comp_create():
-        ip = '172.16.100.7'
+        ip = ''
         pandora_url = '/pandora_console'
-        apipass = 'S7e3xd9Wa'
+        apipass = ''
         user = 'admin'
         password = 'pandora'
         op = 'set' #set or get mode
@@ -19,7 +19,7 @@ def netw_comp_create():
         #network_component_type='18'     #remote snmp boolean
         #network_component_group='50' #cisco test group
         network_component_group='52' #cisco 3600 group
-        snmp_community = 'exit'
+        snmp_community = ''
         min_critical='3'
 	max_critical='0'
 	min_warning='2'

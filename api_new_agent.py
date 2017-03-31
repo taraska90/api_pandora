@@ -6,11 +6,11 @@ import pprint
 import urllib
 
 def set_new_agent():
-        server_ip = '172.16.100.7'
+        server_ip = ''
         pandora_url = '/pandora_console'
-        apipass = 'S7e3xd9Wa'
+        apipass = ''
         user = 'admin'
-        password = 'pandora'
+        password = ''
         op = 'set' #set or get mode
         op2 = 'new_network_component' #choose type
         #other parametr in order:
@@ -26,7 +26,7 @@ def set_new_agent():
         #network_component_type='18'     #remote snmp boolean
         #network_component_group='50' #cisco test group
         network_component_group='52' #cisco 3600 group
-        snmp_community = 'exit'
+        snmp_community = ''
         min_critical='3'
 	max_critical='0'
 	min_warning='2'

@@ -4,11 +4,11 @@ import cStringIO
 import pprint
 
 def main():
-	ip = '172.16.100.7'
+	ip = ''
 	pandora_url = '/pandora_console'
-	apipass = 'S7e3xd9Wa'
+	apipass = ''
 	user = 'admin'
-	password = 'pandora'
+	password = ''
 	op = 'set' #set or get mode
 	op2 = 'new_network_component' #choose type
 	#id = 'Oper%20Status%20On%20Interface%20Gi5%2F'
@@ -16,7 +16,7 @@ def main():
 	#network_component_type='16' #remote snmp inc
 	network_component_type='18'	#remote snmp boolean
 	network_component_group='50' #cisco test group
-	snmp_community = 'exit'
+	snmp_community = ''
 	
 	return_type = 'csv'
 	other =  network_component_type + "%7C" + description + "%7C%7C%7C%7C" + snmp_community + "%7C3%7C%7C1%7C%7C%7C%7C%7C%7C%7C%7C%7C" + network_component_group  

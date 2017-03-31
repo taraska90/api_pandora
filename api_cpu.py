@@ -6,9 +6,9 @@ import pprint
 import urllib
 
 def netw_comp_create():
-        ip = '172.16.100.7'
+        ip = ''
         pandora_url = '/pandora_console'
-        apipass = 'S7e3xd9Wa'
+        apipass = '123'
         user = 'admin'
         password = 'pandora'
         op = 'set' #set or get mode
